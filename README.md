@@ -1,49 +1,55 @@
-# I2PS AI
+# Aura
 
-I2PS AI is an independent engineering project for building, evaluating, and operating a locally controlled AI system using open-weight foundation models and reproducible workflows.
+**Aura** is the central coordination system for I2PS Engineering's modular, distributed computing infrastructure. It is the new name for the project formerly known as **Atlas Nexus**.
 
-## Current status
-
-**Phase 0 — Bootstrap**
-
-The repository is intentionally model-neutral at the start. We will select the first foundation model only after measuring the available hardware, checking licenses, and benchmarking realistic candidates.
-
-## Goals
-
-- Use an open-weight foundation model rather than depend on a proprietary hosted model.
-- Keep model choice modular so the foundation model can be replaced without redesigning the project.
-- Separate inference, knowledge retrieval, evaluation, adaptation, and serving layers.
-- Keep model weights, large datasets, secrets, private documents, and generated checkpoints out of Git.
-- Record major architecture and model decisions.
-- Start locally, measure first, and scale hardware only when evidence requires it.
-
-## Repository structure
+## Architecture
 
 ```text
-i2ps-ai/
-├── configs/       Model and runtime configuration
-├── docs/          Architecture, decisions, and roadmap
-├── scripts/       Setup, diagnostics, downloads, and benchmarks
-├── src/i2ps_ai/   Python package
-├── training/      Fine-tuning and alignment workflows
-└── tests/         Automated tests
+                  Logica Sofia
+             (standalone AI system)
+                        |
+             Future controlled link
+                        |
+                       Aura
+              (central coordination)
+                        |
+                   Orion Core
+              (orchestration / routing)
+                        |
+                    Data Core
+              (storage / persistence)
+
+       Phoenix Core                Horizon Core
+    (resilience / recovery)     (monitoring / optimization)
+          \                          /
+           Cross-cutting infrastructure services
 ```
 
-## Development plan
+| Component | Responsibility |
+| --- | --- |
+| **Aura** | Coordinates the cores, nodes, and shared infrastructure. |
+| **Logica Sofia** | Independent AI system for reasoning, tools, and future integration with Aura. |
+| **Orion Core** | Node coordination, communication, workload routing, and orchestration. |
+| **Data Core** | Shared storage, datasets, and persistent services. |
+| **Phoenix Core** | Hardware, software, and electrical resilience, monitoring, and recovery. |
+| **Horizon Core** | Resource telemetry, performance analysis, and optimization. |
 
-1. Inventory available compute.
-2. Shortlist current open-weight models.
-3. Review licenses and deployment constraints.
-4. Benchmark baseline inference.
-5. Select the first foundation model.
-6. Add a local knowledge/RAG layer.
-7. Build an evaluation harness.
-8. Fine-tune or align only when evaluation shows a concrete need.
+These are **logical responsibilities**, not a requirement for one physical machine per core. Phoenix and Horizon operate across the infrastructure rather than as stages in the Orion–Data path.
 
-## Important
+## Nodes and infrastructure
 
-This repository does **not** contain Claude model weights or any other proprietary model weights. Public Anthropic research, alignment datasets, and Constitutional AI material may be studied as references, but the I2PS model will use an independently selected open-weight foundation model.
+- **Administration/control:** Management access to the infrastructure; not tied to a permanent inference machine.
+- **Linux compute workers:** Modular hosts for workloads, experiments, and future AI inference.
+- **Storage hosts:** Persistent services and data capacity, including planned use of server hardware.
+- **Networking:** LAN-connected workers, with WLAN support where configured; stable addressing and centralized management are being developed.
+- **Power and recovery:** UPS/solar-backed power work and planned Phoenix hardware monitoring.
 
-## Project owner
+## Project status
 
-I2PS Engineering
+The architecture is defined and hardware is being validated incrementally. A Linux rack worker has undergone sustained benchmarking. Distributed scheduling, automated failover, full cross-core coordination, and Logica Sofia integration are **planned or under development**, not claimed as production-ready.
+
+Kubernetes may be introduced where useful; it is **not** a prerequisite for Aura.
+
+---
+
+**Built by I2PS Engineering.**
