@@ -1,5 +1,7 @@
 # Aura
 
+![Aura — Approved Architecture](assets/Aura_Architecture_Corrected_Approved_Sketch.png)
+
 ### Modular Distributed Computing Infrastructure
 
 **An I2PS Engineering Project**  
